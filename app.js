@@ -8,19 +8,23 @@
 const express = require('express');
 const app = express();
 require("dotenv").config();
-const routes = require("./src/Routes/api");
+const router = require("./src/Routes/api");
+
+//implementations of middlewares
+
+
 
 
 
 
 //implementation of routes
-app.use("/api",routes)
+app.use("/api",router);
 
 
 //implementation if undefined route
 app.use("*" , (req,res) =>{
     res.status(404).json({message:"Fail",data:"Not Found"});
-})
+});
 
 
 
